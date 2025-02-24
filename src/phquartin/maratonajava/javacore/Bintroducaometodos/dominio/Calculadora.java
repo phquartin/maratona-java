@@ -17,4 +17,12 @@ public class Calculadora {
         return numerosSubtraidos;
     }
 
+    public int multiplicacao(int... vetor) {
+        int numerosMultiplicados = 1;
+        for (int num : vetor) {
+            numerosMultiplicados *= num;
+        }
+        return numerosMultiplicados;
+    }
+
 }
