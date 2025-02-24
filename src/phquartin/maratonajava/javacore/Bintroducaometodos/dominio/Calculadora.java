@@ -1,9 +1,9 @@
 package phquartin.maratonajava.javacore.Bintroducaometodos.dominio;
 
 public class Calculadora {
-    public int soma(int[] vetor) {
-        int numerosSomados = 0;
-        for (int num : vetor) {
+    public double soma(double[] vetor) {
+        double numerosSomados = 0;
+        for (double num : vetor) {
             numerosSomados = numerosSomados + num;
         }
         return numerosSomados;
