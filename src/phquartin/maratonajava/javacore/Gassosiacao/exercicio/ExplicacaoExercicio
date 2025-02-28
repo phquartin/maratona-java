@@ -1,0 +1,8 @@
+Crie um sistema que gerencie seminarios
+
+O sistema devera cadastrar seminarios, estudantes professores e o local onde sera realizado
+
+UM aluno pode ter apenas UM semiario
+UM seminario pode ter VARIOS ou NENHUM aluno
+UM professor pode ter VARIOS seminarios
+UM seminario deve ter UM local
