@@ -1,6 +1,6 @@
 package phquartin.maratonajava.javacore.Eblocosinicializacao.test;
 
-import phquartin.maratonajava.javacore.Eblocosinicializacao.domain.Desenho;
+import phquartin.maratonajava.javacore.Eblocosinicializacao.dominio.Desenho;
 
 public class DesenhoTest {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package phquartin.maratonajava.javacore.Eblocosinicializacao.domain;
+package phquartin.maratonajava.javacore.Eblocosinicializacao.dominio;
 
 public class Desenho {
     private String nome;
