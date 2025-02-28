@@ -4,6 +4,11 @@ public class Endereco {
     private String rua;
     private String CEP;
 
+    public Endereco(String rua, String CEP) {
+        this.rua = rua;
+        this.CEP = CEP;
+    }
+
     @Override
     public String toString() {
         return "Endereco{" +

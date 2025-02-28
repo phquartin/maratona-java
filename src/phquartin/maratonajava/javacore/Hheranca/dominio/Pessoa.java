@@ -1,11 +1,17 @@
 package phquartin.maratonajava.javacore.Hheranca.dominio;
 
 public class Pessoa {
-    private String nome;
-    private int idade;
-    private String CPF;
-    private Endereco endereco;
+    protected String nome;
+    protected int idade;
+    protected String CPF;
+    protected Endereco endereco;
 
+    public Pessoa(String nome, int idade, String CPF, Endereco endereco) {
+        this.nome = nome;
+        this.idade = idade;
+        this.CPF = CPF;
+        this.endereco = endereco;
+    }
 
     @Override
     public String toString() {
