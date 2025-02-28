@@ -5,9 +5,10 @@ public class Aluno {
     private int idade;
     private Seminario seminario;
 
-    public Aluno(String nome, int idade) {
+    public Aluno(String nome, int idade, Seminario seminario) {
         this.nome = nome;
         this.idade = idade;
+        this.seminario = seminario;
     }
 
     public String getNome() {
