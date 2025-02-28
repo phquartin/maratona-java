@@ -10,7 +10,10 @@ public class JogadorTest02 {
         Jogador jogador3 = new Jogador("FNX");
         Jogador jogador4 = new Jogador("Boltz");
         Jogador jogador5 = new Jogador("Coldzera");
-        Time time1 = new Time("The Last Dance");
+
+        Jogador[] jogadores = {jogador1, jogador2, jogador3, jogador4, jogador5};
+
+        Time time1 = new Time("The Last Dance", jogadores);
 
         jogador1.setTime(time1);
         jogador2.setTime(time1);
@@ -18,7 +21,10 @@ public class JogadorTest02 {
         jogador4.setTime(time1);
         jogador5.setTime(time1);
 
-        System.out.println(jogador1.getNome() + " | " + jogador1.getTime().getNome());
+        time1.imprimir();
+        System.out.println("\n" + jogador1.getNome() + " -> " + jogador1.getTime().getNome());
+        System.out.println(jogador2.getNome() + " -> " + jogador2.getTime().getNome());
+        System.out.println(time1.getNome());
 
     }
 }
