@@ -36,8 +36,9 @@ Criado por Pedro Henrique de Sá Quartin de Matos, estudante de Ciência da Comp
 ---
 
 ## 📋 Anotações
-- [**ModificadoresDeAcesso**](ModificadoresDeAcesso.md)
-- [**InicializacaoDeClasseFilha**](ProcessoDeInicializacaoDeClassesFIlhas.md)
+- [**ModificadoresDeAcesso**](docs/ModificadoresDeAcesso.md)
+- [**InicializacaoDeClasseFilha**](docs/ProcessoDeInicializacaoDeClassesFIlhas.md)
+- [**TratamentoDeVariaveisJava**](docs/TratamentoVariaveis.md)
 
 ---
 
