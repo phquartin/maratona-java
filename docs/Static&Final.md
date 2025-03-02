@@ -34,7 +34,7 @@ System.out.println(Config.NOME_APP); // Saída: Meu Aplicativo
 
 ### **⚡ O que acontece se **`final`** for usado sem **`static`**?**
 
-Se usarmos **apenas **`final`, cada objeto terá sua **própria cópia** da variável, o que pode ser ineficiente para constantes globais.
+Se usarmos **apenas**`final`, cada objeto terá sua **própria cópia** da variável, o que pode ser ineficiente para constantes globais.
 
 Exemplo:
 
