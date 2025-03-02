@@ -10,7 +10,7 @@ A palavra-chave `final` significa que o valor da variável **não pode ser alter
 
 A palavra-chave `static` significa que o valor pertence **à classe e não a um objeto específico**.
 
-### **🔹 Motivo principal da junção **
+### **🔹 Motivo principal da junção**
 
 Quando queremos declarar uma **constante global** (um valor fixo que não muda e pode ser acessado sem precisar criar um objeto da classe), usamos `static final`. Isso evita que cada instância da classe tenha sua própria cópia da constante, economizando memória e tornando o código mais eficiente.
 
