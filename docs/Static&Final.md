@@ -1,16 +1,16 @@
 # ✨ Constantes `static final` em Java
 
-Em Java, é muito comum ver a combinação `` ao declarar constantes. Essa junção tem um propósito importante. Vamos entender o motivo!
+Em Java, é muito comum ver a combinação `static final` ao declarar constantes. Essa junção tem um propósito importante. Vamos entender o motivo!
 
 ---
 
-## **📌 Por que **``** é usado com **``**?**
+## **📌 Por que **`static`** é usado com **`final`**?**
 
-A palavra-chave `` significa que o valor da variável **não pode ser alterado depois de ser atribuído**. Isso faz com que a variável se torne uma **constante**.
+A palavra-chave `final` significa que o valor da variável **não pode ser alterado depois de ser atribuído**. Isso faz com que a variável se torne uma **constante**.
 
-A palavra-chave `` significa que o valor pertence **à classe e não a um objeto específico**.
+A palavra-chave `static` significa que o valor pertence **à classe e não a um objeto específico**.
 
-### **🔹 Motivo principal da junção **``
+### **🔹 Motivo principal da junção **
 
 Quando queremos declarar uma **constante global** (um valor fixo que não muda e pode ser acessado sem precisar criar um objeto da classe), usamos `static final`. Isso evita que cada instância da classe tenha sua própria cópia da constante, economizando memória e tornando o código mais eficiente.
 
@@ -32,9 +32,9 @@ System.out.println(Config.NOME_APP); // Saída: Meu Aplicativo
 
 ---
 
-### **⚡ O que acontece se **``** for usado sem **``**?**
+### **⚡ O que acontece se **`final`** for usado sem **`static`**?**
 
-Se usarmos **apenas **``, cada objeto terá sua **própria cópia** da variável, o que pode ser ineficiente para constantes globais.
+Se usarmos **apenas **`final`, cada objeto terá sua **própria cópia** da variável, o que pode ser ineficiente para constantes globais.
 
 Exemplo:
 
@@ -44,7 +44,7 @@ public class Exemplo {
 }
 ```
 
-Cada vez que criarmos um novo objeto ``, a variável `valor` existirá separadamente para cada instância.
+Cada vez que criarmos um novo objeto `final`, a variável `valor` existirá separadamente para cada instância.
 
 ---
 
