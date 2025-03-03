@@ -6,17 +6,22 @@ public class Gerente extends Funcionario {
     }
 
     @Override
-    public String toString() {
-        return "Gerente{" +
-                "nome='" + this.nome + '\'' +
-                ", salario=" + this.salario +
-                '}';
+    public void bonusSalario() {
+        this.salario = this.salario + salario * 0.2;
     }
 
     public String getNome() {
         return nome;
     }
+
     public double getSalario() {
         return salario;
+    }
+    @Override
+    public String toString() {
+        return "Gerente{" +
+                "nome='" + this.nome + '\'' +
+                ", salario=" + this.salario +
+                '}';
     }
 }

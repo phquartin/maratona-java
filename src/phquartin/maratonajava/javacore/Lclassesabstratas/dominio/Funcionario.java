@@ -16,4 +16,8 @@ public abstract class Funcionario {
     public double getSalario() {
         return salario;
     }
+
+    public abstract void bonusSalario();
 }
+
+
