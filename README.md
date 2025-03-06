@@ -1,11 +1,12 @@
 ## 📌 Repositório de Estudos em Java
 
-Este repositório foi criado com o objetivo de documentar minha jornada de aprendizado em **Java**, abordando desde os conceitos básicos até tópicos avançados. Aqui você encontrará códigos, anotações e exemplos práticos sobre a linguagem.
+Este repositório foi criado para documentar a minha jornada de aprendizado em **Java**, abordando desde os conceitos básicos até tópicos avançados. Aqui você encontrará códigos, anotações e exemplos práticos sobre a linguagem.
 
 ---
 
 ## 📂 Estrutura do Repositório
 
+- `docs/` → Pasta com a algumas anotacoes sobre Java
 - `src/phquartin/maratonajava/` → Código-fonte organizado por pacotes e módulos.
 - `introducao/` → Conceitos Basicos do Java, como os tipos primitivos, estruturas de loop e arrays.
 - `javacore/` → Conceitos principais de Java Core, como modificadores estáticos, encapsulamento e herança.
