@@ -24,5 +24,11 @@ public class WrapperTest01 {
 
         Boolean verdade = Boolean.parseBoolean("trUe");
         System.out.println(verdade);
+
+        Character.UnicodeBlock ub = Character.UnicodeBlock.of(charW);
+        System.out.println(ub);
+
+
+
     }
 }
