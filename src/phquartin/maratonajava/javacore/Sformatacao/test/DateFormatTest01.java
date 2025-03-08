@@ -1,4 +1,4 @@
-package phquartin.maratonajava.javacore.Rdatas.test;
+package phquartin.maratonajava.javacore.Sformatacao.test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
