@@ -7,7 +7,7 @@ import java.util.function.Function;
 public class LambdaTest02 {
     public static void main(String[] args) {
         List<String> stringList = List.of("Pedro", "Joao", "Maria");
-        List<Integer> integers = map(stringList, s -> s.length());
+        List<Integer> integers = map(stringList, String::length);
         System.out.println(integers);
     }
 
