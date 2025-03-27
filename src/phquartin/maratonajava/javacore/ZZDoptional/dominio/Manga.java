@@ -1,0 +1,43 @@
+package phquartin.maratonajava.javacore.ZZDoptional.dominio;
+
+public class Manga {
+    private static Integer TOTAL_IDS = 0;
+    private Integer id;
+    private String title;
+    private int chapters;
+
+    public Manga(String title, int chapters) {
+        this.id = ++TOTAL_IDS;
+        this.title = title;
+        this.chapters = chapters;
+    }
+
+    @Override
+    public String toString() {
+        return "Manga{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", chapters=" + chapters +
+                '}';
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setChapters(int chapters) {
+        this.chapters = chapters;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getChapters() {
+        return chapters;
+    }
+}
