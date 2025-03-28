@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class StreamsTest05 {
+public class StreamTest05 {
     private static List<LightNovel> listLightNovel = new ArrayList<>(List.of(new LightNovel("Juntos Para Sempre", 29.99),
             new LightNovel("A Queda", 59.99),
             new LightNovel("O fim de tudo", 10.00),
