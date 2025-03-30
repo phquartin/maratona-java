@@ -2,6 +2,7 @@ package phquartin.maratonajava.javacore.ZZEstreams.test;
 
 import phquartin.maratonajava.javacore.ZZEstreams.dominio.Category;
 import phquartin.maratonajava.javacore.ZZEstreams.dominio.LightNovel;
+import phquartin.maratonajava.javacore.ZZEstreams.dominio.Promotion;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -22,5 +23,10 @@ public class StreamTest14 {
         collect.forEach((category, summaryStatistics) -> {
             System.out.println(category + ": " + summaryStatistics);
         });
+        System.out.println();
+        Map<Category, Set<Promotion>> collect1 = listLightNovel.stream()
+                .collect(Collectors.groupingBy(LightNovel::getCategory,
+                         Collectors.mapping(ln -> ln.getPrice() < 6 ? Promotion.UNDER_PROMOTION : Promotion.NORMAL_PRICE, Collectors.toSet())));
+        System.out.println(collect1);
     }
 }
