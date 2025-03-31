@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-class ThreadSafeNames { // Possui um problema mesmo com os atributos synchronized. Os metodos que acessam tambem precisam ser syncronized
+class ThreadSafeNames { // Possui um problema mesmo com os atributos synchronized. Os metodos que acessam tambem precisam ser synchronized
     private final List<String> names = Collections.synchronizedList(new ArrayList<String>());
 
     public void add(String name) {
