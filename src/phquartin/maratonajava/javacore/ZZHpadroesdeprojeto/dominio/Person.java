@@ -30,12 +30,8 @@ public class Person {
         private String username;
         private String email;
 
-        public PersonBuilder() {
-        }
-
-        public PersonBuilder firstName(String firstName) {
+        public PersonBuilder(String firstName) {
             this.firstName = firstName;
-            return this;
         }
 
         public PersonBuilder lastName(String lastName) {

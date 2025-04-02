@@ -4,8 +4,7 @@ import phquartin.maratonajava.javacore.ZZHpadroesdeprojeto.dominio.Person;
 
 public class BuilderPessoaTest01 {
     public static void main(String[] args) {
-        Person build = new Person.PersonBuilder()
-                .firstName("John")
+        Person build = new Person.PersonBuilder("John")
                 .lastName("Doe")
                 .username("john")
                 .email("john@doe.com")
