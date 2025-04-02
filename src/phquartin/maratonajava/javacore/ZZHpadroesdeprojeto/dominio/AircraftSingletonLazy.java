@@ -4,20 +4,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 public final class AircraftSingletonLazy {
-    private static AircraftSingletonLazy INSTANCE;
 
     private AircraftSingletonLazy() {
     }
 
+    private static final class InstanceHolder {
+        private static final AircraftSingletonLazy INSTANCE = new AircraftSingletonLazy();
+    }
+
     public static AircraftSingletonLazy getInstance() {
-        if (INSTANCE == null) {
-            synchronized (AircraftSingletonLazy.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new AircraftSingletonLazy();
-                }
-            }
-        }
-        return INSTANCE;
+        return InstanceHolder.INSTANCE;
     }
 
     private final Set<String> availableSeats = new HashSet<>();
