@@ -5,8 +5,11 @@ import phquartin.maratonajava.javacore.ZZIjbdc.conn.ConnectionFactory;
 import phquartin.maratonajava.javacore.ZZIjbdc.dominio.Producer;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 @Log4j2
 public class ProducerRepository {
@@ -50,5 +53,29 @@ public class ProducerRepository {
         } catch (SQLException e) {
             log.error("Error while updating producer, id: '{}'",producer.getId(), e);
         }
+    }
+
+    public static List<Producer> findAll() {
+        List<Producer> producers = new ArrayList<>();
+        String sql = "SELECT id,name FROM anime_store.producer;";
+        log.info("Find all producers");
+
+        try(Connection conn = ConnectionFactory.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql))
+        {
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String string = rs.getString("name");
+                Producer producer = Producer.builder()
+                        .id(id)
+                        .name(string)
+                        .build();
+                producers.add(producer);
+            }
+        } catch (SQLException e) {
+            log.error("Error while finding all Producers ", e);
+        }
+        return producers;
     }
 }
