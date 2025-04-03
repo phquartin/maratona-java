@@ -23,6 +23,7 @@ public class ProducerRepository {
             log.error("Error while inserting producer '{}'",producer.getName(), e);
         }
     }
+
     public static void delete(int id) {
         String sql = "DELETE FROM anime_store.producer WHERE (id = %d);".formatted(id);
 
@@ -34,6 +35,20 @@ public class ProducerRepository {
 
         } catch (SQLException e) {
             log.error("Error while deleting producer id '{}'",id, e);
+        }
+    }
+
+    public static void update(Producer producer) {
+        String sql = "UPDATE anime_store.producer SET name = '%s' WHERE (id = %d);".formatted(producer.getName(), producer.getId());
+
+        try(Connection conn = ConnectionFactory.getConnection();
+            Statement stmt = conn.createStatement())
+        {
+            int rowsAffected = stmt.executeUpdate(sql);
+            log.info((rowsAffected == 0) ? "Update failed, 0 rows affected (maybe the id does not exist)" : "Updated producer id '{}' in database, rows affected: '{}'",producer.getId(), rowsAffected);
+
+        } catch (SQLException e) {
+            log.error("Error while updating producer, id: '{}'",producer.getId(), e);
         }
     }
 }
