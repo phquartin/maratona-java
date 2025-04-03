@@ -35,7 +35,11 @@ public class Users implements Comparable<Users> {
 
     @Override
     public String toString() {
-        return STR."Users{id=\{ID}, nome='\{nome}', age=\{age}}";
+        return "Users{" +
+                "ID=" + ID +
+                ", nome='" + nome + '\'' +
+                ", age=" + age +
+                '}';
     }
 
     public Long getID() {

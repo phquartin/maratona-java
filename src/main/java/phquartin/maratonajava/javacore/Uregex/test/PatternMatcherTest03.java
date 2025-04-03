@@ -17,7 +17,7 @@ public class PatternMatcherTest03 {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(texto);
         while (matcher.find()) {
-            System.out.println(STR."\{matcher.start()} - \{matcher.group()}");
+            System.out.println("Matched: " + matcher.group());
         }
     }
 }

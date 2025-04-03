@@ -47,7 +47,7 @@ public class ReentrantReadWriteTest01 {
 
         Runnable write = () -> {
             for (int i = 0; i < 20; i++) {
-                map.put(STR."key\{i}", STR."value\{i}");
+                map.put("key" + i, "value" + i);
             }
         };
         Runnable read = () -> {
