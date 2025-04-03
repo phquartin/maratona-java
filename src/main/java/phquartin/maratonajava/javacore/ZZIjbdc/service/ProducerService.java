@@ -24,6 +24,9 @@ public class ProducerService {
     public static List<Producer> findByName(String name) {
         return ProducerRepository.findByName(name);
     }
+    public static void showProducerMetaData() {
+        ProducerRepository.showProducerMetadata();
+    }
     private static void requireValidId(Integer id) {
         if(id == null || id <= 0 ){
             throw new IllegalArgumentException("Id must be greater than zero");

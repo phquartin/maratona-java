@@ -4,10 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import phquartin.maratonajava.javacore.ZZIjbdc.conn.ConnectionFactory;
 import phquartin.maratonajava.javacore.ZZIjbdc.dominio.Producer;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +60,7 @@ public class ProducerRepository {
     public static List<Producer> findByName(String name) {
         List<Producer> producers = new ArrayList<>();
         String sql = "SELECT id,name FROM anime_store.producer WHERE name LIKE '%%%s%%';".formatted(name);
-        log.info("Find all producers");
+        log.info("Finding all producers by name");
 
         try(Connection conn = ConnectionFactory.getConnection();
             Statement stmt = conn.createStatement();
@@ -82,5 +79,27 @@ public class ProducerRepository {
             log.error("Error while finding producer by name", e);
         }
         return producers;
+    }
+
+    public static void showProducerMetadata() {
+        String sql = "SELECT id,name FROM anime_store.producer";
+        log.info("Finding the Metadata from producers");
+
+        try(Connection conn = ConnectionFactory.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql))
+        {
+            ResultSetMetaData metaData = rs.getMetaData();
+            rs.next();
+            int columnCount = metaData.getColumnCount();
+            for (int i = 1; i <= columnCount; i++) {
+                log.info("Table - {} : Column - {}", metaData.getTableName(i), metaData.getColumnName(i));
+                log.info("Column size: {}",metaData.getColumnDisplaySize(i));
+                log.info("Column type: {}",metaData.getColumnTypeName(i));
+            }
+
+        } catch (SQLException e) {
+            log.error("Error while finding producer by name", e);
+        }
     }
 }
