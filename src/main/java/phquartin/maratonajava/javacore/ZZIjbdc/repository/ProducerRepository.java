@@ -56,8 +56,13 @@ public class ProducerRepository {
     }
 
     public static List<Producer> findAll() {
+        log.info("Finding all producers");
+        return findByName("");
+    }
+
+    public static List<Producer> findByName(String name) {
         List<Producer> producers = new ArrayList<>();
-        String sql = "SELECT id,name FROM anime_store.producer;";
+        String sql = "SELECT id,name FROM anime_store.producer WHERE name LIKE '%%%s%%';".formatted(name);
         log.info("Find all producers");
 
         try(Connection conn = ConnectionFactory.getConnection();
@@ -74,7 +79,7 @@ public class ProducerRepository {
                 producers.add(producer);
             }
         } catch (SQLException e) {
-            log.error("Error while finding all Producers ", e);
+            log.error("Error while finding producer by name", e);
         }
         return producers;
     }
