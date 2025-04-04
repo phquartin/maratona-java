@@ -81,6 +81,31 @@ public class ProducerRepository {
         return producers;
     }
 
+    public static List<Producer> findByNamePreparedStatement(String name) {
+        List<Producer> producers = new ArrayList<>();
+        String sql = "SELECT id,name FROM anime_store.producer WHERE name LIKE ?;";
+        log.info("Finding all producers by name");
+
+        try(Connection conn = ConnectionFactory.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql))
+        {
+            ps.setString(1, name);
+            ResultSet rs = ps.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String string = rs.getString("name");
+                Producer producer = Producer.builder()
+                        .id(id)
+                        .name(string)
+                        .build();
+                producers.add(producer);
+            }
+        } catch (SQLException e) {
+            log.error("Error while finding producer by name", e);
+        }
+        return producers;
+    }
+
     public static void showProducerMetadata() {
         String sql = "SELECT id,name FROM anime_store.producer";
         log.info("Finding the Metadata from producers");
@@ -90,7 +115,6 @@ public class ProducerRepository {
             ResultSet rs = stmt.executeQuery(sql))
         {
             ResultSetMetaData metaData = rs.getMetaData();
-            rs.next();
             int columnCount = metaData.getColumnCount();
             for (int i = 1; i <= columnCount; i++) {
                 log.info("Table - {} : Column - {}", metaData.getTableName(i), metaData.getColumnName(i));
