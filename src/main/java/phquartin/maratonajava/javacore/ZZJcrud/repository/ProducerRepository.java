@@ -58,4 +58,16 @@ public class ProducerRepository {
         }
     }
 
+    public static void update(Producer producer){
+        try(Connection connection = ConnectionFactory.getConnection();
+            PreparedStatement ps = connection.prepareStatement("UPDATE producers SET name = ? WHERE id = ?")){
+            ps.setString(1, producer.getName());
+            ps.setInt(2, producer.getId());
+            ps.execute();
+            log.info("Producer {} updated!", producer.getName());
+        }catch (SQLException e){
+            log.error("Erro at updating producer {}! ", producer.getName());
+        }
+    }
+
 }

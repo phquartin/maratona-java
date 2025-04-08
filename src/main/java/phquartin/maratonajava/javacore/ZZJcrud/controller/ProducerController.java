@@ -15,6 +15,7 @@ public class ProducerController {
         System.out.println("1 - Find by name");
         System.out.println("2 - Delete");
         System.out.println("3 - Create");
+        System.out.println("4 - Update");
         System.out.print("Enter your option: ");
         int op = Integer.parseInt(sc.nextLine());
         switch (op){
@@ -37,6 +38,16 @@ public class ProducerController {
                 String name = sc.nextLine();
                 Producer producer = Producer.builder().name(name).build();
                 ProducerService.create(producer);
+                break;
+            case 4:
+                System.out.print("Enter the id of the producer you want to update: ");
+                int idUpdate = Integer.parseInt(sc.nextLine());
+                System.out.print("Enter the new name of the producer: ");
+                String newName = sc.nextLine();
+                Producer producerUpdate = Producer.builder().id(idUpdate).name(newName).build();
+                ProducerService.update(producerUpdate);
+                break;
+            case 5:
                 break;
             case 0: System.exit(0);
             default: throw new IllegalArgumentException("Not a valid option");

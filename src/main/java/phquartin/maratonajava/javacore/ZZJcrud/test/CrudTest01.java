@@ -7,7 +7,11 @@ public class CrudTest01 {
 
     public static void main(String[] args) {
         while (true){
-            ProducerController.buildMenu();
+            try {
+                ProducerController.buildMenu();
+            }catch (Exception e){
+                System.out.println("Erro: " + e.getMessage());
+            }
         }
     }
 
