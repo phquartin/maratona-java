@@ -9,13 +9,13 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
     public static Connection getConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/anime_store";
+        String url = "jdbc:mysql://localhost:3308/anime_store";
         String user = "root";
         String password = "root";
         return DriverManager.getConnection(url, user, password);
     }
     public static CachedRowSet getCachedRowSet() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/anime_store";
+        String url = "jdbc:mysql://localhost:3308/anime_store";
         String user = "root";
         String password = "root";
         CachedRowSet cachedRowSet = RowSetProvider.newFactory().createCachedRowSet();

@@ -10,11 +10,15 @@ import java.util.List;
 public class ConnectionFactoryTest01 {
     public static void main(String[] args) {
         Producer producer = Producer.builder()
-                .name("Mad House 2")
+                .name("NHK")
                 .build();
-        //ProducerService.save(producer);
+        Producer producer2 = Producer.builder()
+                .id(1)
+                .name("MADHOUSE")
+                .build();
+        ProducerService.save(producer);
         //ProducerService.delete(9);
-        //ProducerService.update(producer);
+        ProducerService.update(producer2);
 //        List<Producer> all = ProducerService.findAll();
 //        log.info("Found all producers: {}", all);
 //        List<Producer> producers = ProducerService.findByName("Mad");
