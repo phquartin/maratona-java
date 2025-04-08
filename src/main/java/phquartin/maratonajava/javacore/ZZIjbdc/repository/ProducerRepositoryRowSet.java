@@ -4,6 +4,7 @@ import phquartin.maratonajava.javacore.ZZIjbdc.conn.ConnectionFactory;
 import phquartin.maratonajava.javacore.ZZIjbdc.dominio.Producer;
 import phquartin.maratonajava.javacore.ZZIjbdc.listener.CustomRowSetListener;
 
+import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,10 +14,10 @@ import java.util.List;
 
 public class ProducerRepositoryRowSet {
 
-    public static List<Producer> findByNameJdbcRowSet(String name) {
+    public static List<Producer> findByNameCachedRowSet(String name) {
         List<Producer> producers = new ArrayList<>();
         String sql = "select * from anime_store.producer where name like ?;";
-        try(JdbcRowSet jrs = ConnectionFactory.getJdbcRowSet()){
+        try(CachedRowSet jrs = ConnectionFactory.getCachedRowSet()){
             jrs.addRowSetListener(new CustomRowSetListener());
             jrs.setCommand(sql);
             jrs.setString(1, String.format("%%%s%%", name));
@@ -34,9 +35,9 @@ public class ProducerRepositoryRowSet {
         return producers;
     }
 
-    public static void updateJdbcRowSet(Producer producer) {
+    public static void updateCachedRowSet(Producer producer) {
         String sql = "select * from anime_store.producer WHERE (id = ?);";
-        try(JdbcRowSet jrs = ConnectionFactory.getJdbcRowSet()){
+        try(CachedRowSet jrs = ConnectionFactory.getCachedRowSet()){
             jrs.addRowSetListener(new CustomRowSetListener());
             jrs.setCommand(sql);
             jrs.setInt(1, producer.getId());
@@ -44,6 +45,7 @@ public class ProducerRepositoryRowSet {
             if (!jrs.next()) return;
             jrs.updateString("name", String.format("%s", producer.getName()));
             jrs.updateRow();
+            jrs.acceptChanges();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

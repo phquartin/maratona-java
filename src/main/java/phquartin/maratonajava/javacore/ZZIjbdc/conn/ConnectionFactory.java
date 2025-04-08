@@ -1,5 +1,6 @@
 package phquartin.maratonajava.javacore.ZZIjbdc.conn;
 
+import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;
 import java.sql.Connection;
@@ -13,14 +14,14 @@ public class ConnectionFactory {
         String password = "root";
         return DriverManager.getConnection(url, user, password);
     }
-    public static JdbcRowSet getJdbcRowSet() throws SQLException {
+    public static CachedRowSet getCachedRowSet() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/anime_store";
         String user = "root";
         String password = "root";
-        JdbcRowSet jdbcRowSet = RowSetProvider.newFactory().createJdbcRowSet();
-        jdbcRowSet.setUrl(url);
-        jdbcRowSet.setUsername(user);
-        jdbcRowSet.setPassword(password);
-        return jdbcRowSet;
+        CachedRowSet cachedRowSet = RowSetProvider.newFactory().createCachedRowSet();
+        cachedRowSet.setUrl(url);
+        cachedRowSet.setUsername(user);
+        cachedRowSet.setPassword(password);
+        return cachedRowSet;
     }
 }

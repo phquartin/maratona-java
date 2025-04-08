@@ -10,9 +10,9 @@ import java.util.List;
 @Log4j2
 public class ConnectionFactoryTest02 {
     public static void main(String[] args) {
-        Producer producer = Producer.builder().name("NHK").id(1).build();
-        ProducerRepositoryRowSet.updateJdbcRowSet(producer);
-        List<Producer> mad = ProducerServiceRowSet.findByNameJdbcRowSet("");
-        log.info(mad);
+        Producer producer = Producer.builder().name("Mad House").id(1).build();
+        ProducerRepositoryRowSet.updateCachedRowSet(producer);
+//        List<Producer> mad = ProducerServiceRowSet.findByNameCachedRowSet("");
+//        log.info(mad);
     }
 }
