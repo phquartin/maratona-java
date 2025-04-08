@@ -12,4 +12,8 @@ public class Anime {
     int episodes;
     Producer producer;
 
+    @Override
+    public String toString() {
+        return "Anime: [" + id + "] - " + name + " - " + episodes + " - " + producer;
+    }
 }

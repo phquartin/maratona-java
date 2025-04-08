@@ -1,7 +1,8 @@
 package phquartin.maratonajava.javacore.ZZJcrud.test;
 
+import lombok.extern.log4j.Log4j2;
 import phquartin.maratonajava.javacore.ZZJcrud.controller.ProducerController;
-
+@Log4j2
 public class CrudTest01 {
 
 
@@ -10,7 +11,7 @@ public class CrudTest01 {
             try {
                 ProducerController.buildMenu();
             }catch (Exception e){
-                System.out.println("Erro: " + e.getMessage());
+                log.error("Erro: {}", e.getMessage());
             }
         }
     }
