@@ -47,5 +47,15 @@ public class ProducerRepository {
         }
     }
 
+    public static void create(Producer producer){
+        try(Connection connection = ConnectionFactory.getConnection();
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO producers(name) VALUES (?)")){
+            ps.setString(1, producer.getName());
+            ps.execute();
+            log.info("Producer {} created!", producer.getName());
+        }catch (SQLException e){
+            log.error("Erro at creating producer {}! ", producer.getName());
+        }
+    }
 
 }
