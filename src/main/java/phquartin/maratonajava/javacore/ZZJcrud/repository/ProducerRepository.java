@@ -34,4 +34,18 @@ public class ProducerRepository {
         return producers;
     }
 
+    public static void delete(int id){
+        try(Connection connection = ConnectionFactory.getConnection();
+        PreparedStatement ps = connection.prepareStatement("DELETE FROM producers WHERE id = ?")) {
+
+            ps.setInt(1, id);
+            ps.execute();
+            log.info("Producer with id {} deleted!", id);
+        }catch (SQLException e){
+            log.error("Erro at deleting producer with id {}! ", id);
+            log.error(e.getMessage());
+        }
+    }
+
+
 }

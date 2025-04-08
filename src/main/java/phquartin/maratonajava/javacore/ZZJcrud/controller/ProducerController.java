@@ -13,6 +13,7 @@ public class ProducerController {
         System.out.println("Type the number of the option you want to execute:");
         System.out.println("0 - Exit");
         System.out.println("1 - Find by name");
+        System.out.println("2 - Delete");
         System.out.print("Enter your option: ");
         int op = Integer.parseInt(sc.nextLine());
         switch (op){
@@ -24,6 +25,11 @@ public class ProducerController {
                     break;
                 }
                 byName.forEach(System.out::println);
+                break;
+            case 2:
+                System.out.print("Enter the id of the producer you want to delete: ");
+                int id = Integer.parseInt(sc.nextLine());
+                ProducerService.delete(id);
                 break;
             case 0: System.exit(0);
             default: throw new IllegalArgumentException("Not a valid option");
